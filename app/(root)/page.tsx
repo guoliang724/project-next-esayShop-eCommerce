@@ -1,12 +1,17 @@
-import { title } from "process";
+import { getProducts } from "@/lib/actions/product.action";
+import ProductList from "@/components/shared/product/product-list";
 
 export const metadata = {
-  title: "Home"
-}
-export default function Home() {
+  title: "Home",
+};
+const Home = async () => {
+  const products = await getProducts();
+
   return (
     <div>
-      home
+      <ProductList data={products as any} title="Newest Arrivals"></ProductList>
     </div>
   );
-}
+};
+
+export default Home;
