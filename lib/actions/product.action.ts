@@ -24,13 +24,7 @@ export async function getProductByProductNumber(num:number) {
         return covertToPlainObject(product);
 }
 
-export async function createProduct(product:IProduct) {
-  
-    const newProduct = await prisma.product.create({
-        data: product
-    })
-    return newProduct;
-}
+
 
 export async function updateProduct(id:number, product:IProduct) {
   

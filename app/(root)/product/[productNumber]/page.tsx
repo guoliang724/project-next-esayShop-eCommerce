@@ -6,6 +6,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import ProductPrice from "@/components/shared/product/productPrice";
 import ProductImages from "@/components/shared/product/product-images";
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 const ProductDetailsPage = async ({
   params,
 }: {

@@ -1,5 +1,6 @@
 import { getProducts } from "@/lib/actions/product.action";
 import ProductList from "@/components/shared/product/product-list";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 export const metadata = {
   title: "Home",
