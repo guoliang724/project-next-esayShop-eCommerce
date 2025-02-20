@@ -19,7 +19,7 @@ export async function getProducts() {
 export async function getProductByProductNumber(num:number) {
     
         const product = await prisma.product.findFirst({
-            where: { productNumber:  num }
+            where: { productNumber:  num || 1}
         })
         return covertToPlainObject(product);
 }

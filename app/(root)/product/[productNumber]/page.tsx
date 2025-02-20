@@ -15,7 +15,9 @@ const ProductDetailsPage = async ({
 }) => {
   const { productNumber } = await params;
 
-  const product = await getProductByProductNumber(+productNumber);
+  const transferToNumber = parseInt(productNumber);
+
+  const product = await getProductByProductNumber(transferToNumber);
 
   if (!product) {
     return notFound();
