@@ -1,19 +1,20 @@
 import React from "react";
 import CredentialsSignForm from "./credentials-sign-form";
-import { Metadata } from "next";
 
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
+import type { Metadata } from "next";
 
-export const metedata: Metadata = {
+export const metadata:Metadata = {
   title: "Sign In",
+  description: "Sign In Form",
 };
 
-const SignInPage = async ({
+async function SignInPage({
   searchParams,
 }: {
   searchParams: Promise<{ callbackUrl: string }>;
-}) => {
+}) {
   const { callbackUrl } = await searchParams;
 
   const session = await auth();
@@ -26,6 +27,6 @@ const SignInPage = async ({
       <CredentialsSignForm />
     </div>
   );
-};
+}
 
 export default SignInPage;
