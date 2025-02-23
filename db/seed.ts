@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client';
-import { products } from './data';
+import { products,users} from './data';
 
 
 async function main() {
@@ -9,11 +9,23 @@ async function main() {
 
     await prisma.product.deleteMany();
 
-    for (let product of products) {
-        await prisma.product.create({
-            data: product
-        });
-    }
+    await prisma.account.deleteMany();
+
+    await prisma.session.deleteMany();
+
+    await prisma.verificationToken.deleteMany();
+
+    await prisma.user.deleteMany();
+
+    await prisma.product.createMany({
+        data: products,}
+    );
+
+    await prisma.user.createMany({
+        data: users
+    });
+
+
     console.log("database seed successful!");
 }
 
