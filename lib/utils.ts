@@ -36,3 +36,13 @@ export function formatError(error: any) {
       : JSON.stringify(error.message);
   }
 }
+
+export function round2(value: number | string) {
+  if (typeof value === "string") {
+    return Math.round(Number(value) * 100) / 100;
+  } else if (typeof value === "number") {
+    return Math.round(value * 100) / 100;
+  } else {
+    throw new Error("Input must be a number or a string");
+  }
+}

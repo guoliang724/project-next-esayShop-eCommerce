@@ -8,6 +8,7 @@ import { useActionState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useSearchParams } from "next/navigation";
+import { signInDefaultValues } from "@/lib/constants";
 
 export default function SignIn() {
   const [formData, signInAction] = useActionState(SignInWithCredentials, {
@@ -68,7 +69,7 @@ export default function SignIn() {
                   autoComplete="email"
                   required
                   className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
-                  defaultValue=""
+                  defaultValue={signInDefaultValues.email}
                 />
               </div>
             </div>
@@ -88,7 +89,7 @@ export default function SignIn() {
                   autoComplete="current-password"
                   required
                   className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
-                  defaultValue=""
+                  defaultValue={signInDefaultValues.password}
                 />
               </div>
               {formData && !formData.success && (
