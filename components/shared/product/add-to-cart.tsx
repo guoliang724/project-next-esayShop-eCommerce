@@ -78,7 +78,7 @@ const AddToCart = ({ item, cart }: { item: ICartItem; cart?: ICart }) => {
   ) : (
     <Button className="w-full" type="button" onClick={handleAddtoCart}>
       {ispPending ? (
-        <Loader className="w-4 h-4 animate-ping" />
+        <Loader className="w-4 h-4 animate-spin" />
       ) : (
         <Plus className="h-4 w-4" />
       )}{" "}
