@@ -1,5 +1,5 @@
 import React from "react";
-import { IProductPrice } from "@/type/product";
+import { IProductPrice } from "@/type";
 import { cn } from "@/lib/utils";
 
 function ProductPrice({ price, className }: IProductPrice) {

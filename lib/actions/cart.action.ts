@@ -1,7 +1,7 @@
 "use server";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { ICartItem } from "@/type/product";
+import { ICartItem } from "@/type";
 import { cookies } from "next/headers";
 import { formatError } from "../utils";
 import { auth } from "@/auth";

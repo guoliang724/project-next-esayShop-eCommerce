@@ -1,6 +1,6 @@
 "use client";
 
-import { ICart, ICartItem } from "@/type/product";
+import { ICart, ICartItem } from "@/type";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { Plus, Minus, Loader } from "lucide-react";

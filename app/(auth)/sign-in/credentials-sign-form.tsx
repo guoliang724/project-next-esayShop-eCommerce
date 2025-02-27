@@ -99,8 +99,11 @@ export default function SignIn() {
               )}
             </div>
 
-            <div>
+            <div className="flex gap-5">
               <SignInButton></SignInButton>
+              <Button variant="outline" className="w-full" type="button">
+                <Link href="/">Back</Link>
+              </Button>
             </div>
           </form>
         </div>

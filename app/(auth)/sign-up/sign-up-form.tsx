@@ -136,8 +136,11 @@ export default function SignUpForm() {
               )}
             </div>
 
-            <div>
+            <div className="flex  gap-5">
               <SignUpButton />
+              <Button variant="outline" className="w-full" type="button">
+                <Link href="/">Back</Link>
+              </Button>
             </div>
           </form>
         </div>

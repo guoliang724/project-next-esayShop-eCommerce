@@ -12,3 +12,11 @@ export const signInDefaultValues = {
   email: "admin@example.com",
   password: "123456",
 };
+
+export const shippingAddressDefaultValues = {
+  fullName: "Jone Doe",
+  streetAddress: "123 Main st",
+  city: "Anytown",
+  postalCode: "1234",
+  country: "USA",
+};

@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { IProduct } from "@/type/product";
+import { IProduct } from "@/type";
 import Link from "next/link";
 
 import Image from "next/image";
