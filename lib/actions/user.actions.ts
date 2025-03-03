@@ -5,12 +5,14 @@ import {
   signInFormSchema,
   signUpFormSchema,
   shippingAddressSchema,
+  paymentMethodSchema,
 } from "../validator";
 import { signIn, signOut, auth } from "@/auth";
 import { hashSync } from "bcrypt-ts-edge";
 import { prisma } from "@/prisma/prisma";
 import { formatError } from "../utils";
 import { IShippingAddress } from "@/type";
+import { z } from "zod";
 
 export const SignInWithCredentials = async (
   prev: { message: string; success: boolean },
@@ -112,5 +114,38 @@ export async function updateUserAddress(data: IShippingAddress) {
     };
   } catch (error) {
     return { success: false, message: formatError(error) };
+  }
+}
+
+export async function updateUserPaymentMethod(
+  data: z.infer<typeof paymentMethodSchema>
+) {
+  try {
+    const session = await auth();
+    const currentUser = await prisma.user.findFirst({
+      where: { id: session.user.id },
+    });
+
+    if (!currentUser) {
+      throw new Error("User not found");
+    }
+
+    const paymentMethod = paymentMethodSchema.parse(data);
+
+    await prisma.user.update({
+      where: { id: currentUser.id },
+      data: {
+        paymentMethod: paymentMethod.type,
+      },
+    });
+    return {
+      success: true,
+      message: "User updated successfully",
+    };
+  } catch (error) {
+    return {
+      success: false,
+      message: formatError(error),
+    };
   }
 }

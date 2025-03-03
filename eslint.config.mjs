@@ -16,7 +16,10 @@ const compat = new FlatCompat({
       "plugin:@typescript-eslint/recommended",
     ],
     rules: {
-      "@typescript-eslint/no-unused-vars": "off",
+      "no-unused-vars": [
+        'off',
+        { vars: "all", args: "after-used", ignoreRestSiblings: false },
+      ],
       "@typescript-eslint/no-explicit-any": "off",
     },
   },
