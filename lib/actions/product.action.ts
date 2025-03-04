@@ -29,3 +29,26 @@ export async function updateProduct(id: number, product: IProduct) {
   });
   return updatedProduct;
 }
+
+export async function getAllCategories() {
+  const data = await prisma.product.groupBy({
+    by: ["category"],
+    _count: true,
+  });
+
+  return data;
+}
+
+export async function getFeaturedProducts() {
+  const data = await prisma.product.findMany({
+    where: {
+      isFeatured: true,
+    },
+    orderBy: {
+      createdAt: "desc",
+    },
+    take: 4,
+  });
+
+  return covertToPlainObject(data);
+}
