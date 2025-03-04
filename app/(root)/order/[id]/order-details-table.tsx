@@ -13,9 +13,26 @@ import { formatCurrency, formatDateTime, formatId } from "@/lib/utils";
 import { IOrder } from "@/type";
 import Link from "next/link";
 import Image from "next/image";
+import {
+  PayPalButtons,
+  PayPalScriptProvider,
+  usePayPalScriptReducer,
+} from "@paypal/react-paypal-js";
+import {
+  createPayPalOrder,
+  approvePayPalorder,
+} from "@/lib/actions/order.actions";
+import { useToast } from "@/hooks/use-toast";
 
-function OrderDetailsTable({ order }: { order: IOrder }) {
+function OrderDetailsTable({
+  order,
+  paypalClientId,
+}: {
+  order: IOrder;
+  paypalClientId: string;
+}) {
   const {
+    id,
     orderItem,
     shippingAddress,
     shippingPrice,
@@ -28,9 +45,49 @@ function OrderDetailsTable({ order }: { order: IOrder }) {
     paidAt,
     deliveredAt,
   } = order;
+
+  const { toast } = useToast();
+
+  const PrintLoadingState = () => {
+    const [{ isPending, isRejected }] = usePayPalScriptReducer();
+    let status = "";
+
+    if (isPending) {
+      status = "Loading Paypal.....";
+    } else if (isRejected) {
+      status = "Error Laoding Paypal";
+    }
+
+    return status;
+  };
+
+  console.log("++++order.id", order.id);
+  const handleCreateOrder = async () => {
+    console.log("++++order.id111", order.id);
+    const res = await createPayPalOrder(order.id);
+
+    if (!res.success) {
+      toast({
+        title: "Error",
+        description: res.message,
+        variant: "destructive",
+      });
+    }
+
+    return res.data;
+  };
+  const handleApproveOrder = async (data: { orderID: string }) => {
+    const res = await approvePayPalorder(order.id, data);
+
+    toast({
+      variant: res.success ? "default" : "destructive",
+      description: res.message,
+    });
+  };
+
   return (
     <>
-      <h1 className="py-4 text-2xl">Order {formatId(order.id)}</h1>
+      <h1 className="py-4 text-2xl">Order {formatId(id)}</h1>
       <div className="grid md:grid-cols-3 md:gap-5">
         <div className="col-span-2 space-y-4 overflow-x-auto">
           <Card>
@@ -76,7 +133,7 @@ function OrderDetailsTable({ order }: { order: IOrder }) {
                 </TableHeader>
                 <TableBody>
                   {orderItem.map((item) => (
-                    <TableRow key={item.productNumber}>
+                    <TableRow key={item.name}>
                       <TableCell>
                         <Link
                           href={`/product/${item.productNumber}`}
@@ -123,6 +180,18 @@ function OrderDetailsTable({ order }: { order: IOrder }) {
                 <div>Total</div>
                 <div>{formatCurrency(totalPrice)}</div>
               </div>
+
+              {!isPaid && paymentMethod === "PayPal" && (
+                <div>
+                  <PayPalScriptProvider options={{ clientId: paypalClientId }}>
+                    <PrintLoadingState />
+                    <PayPalButtons
+                      createOrder={handleCreateOrder}
+                      onApprove={handleApproveOrder}
+                    />
+                  </PayPalScriptProvider>
+                </div>
+              )}
             </CardContent>
           </Card>
         </div>

@@ -26,6 +26,7 @@ async function OrderDetailsPage(props: {
         ...order,
         shippingAddress: order.shippingAddress as IShippingAddress,
       }}
+      paypalClientId={process.env.PAYPAL_CLIENT_ID || "sb"}
     ></OrderDetailsTable>
   );
 }
