@@ -39,7 +39,7 @@ function ProductCarousel({ data }: { data: IProduct[] }) {
                   alt={product.name}
                   width={0}
                   height={0}
-                  className="h-52 object-cover"
+                  className="h-60 object-cover"
                 />
                 {/* <div className="absolute inset-0 flex items-end justify-center">
                   <h2 className="bg-gray-900 bg-opacity-50 text-2xl font-bold px-2 text-white">
