@@ -11,7 +11,7 @@ import {
 
 export type IProduct = z.infer<typeof insertProductSchema> & {
   id: string;
-  star: string;
+  rating: string;
   numReviews: number;
   isFeatured: boolean;
   createdAt?: string;
@@ -46,5 +46,4 @@ export type IOrder = z.infer<typeof insertOrderSchema> & {
   };
 };
 
-
-export type IPaymentResult = z.infer<typeof paymentResultSchema>
+export type IPaymentResult = z.infer<typeof paymentResultSchema>;

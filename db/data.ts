@@ -1,24 +1,23 @@
-import {hashSync} from "bcrypt-ts-edge"
+import { hashSync } from "bcrypt-ts-edge";
 
-export const users =[
-    {
-        name: 'John',
-        email: "admin@example.com",
-        password:hashSync("123456",10),
-        role:"admin"
-    },
-    {
-        name: 'Jane',
-        email: "user@example.com",
-        password:hashSync("123456",10),
-        role:"user"
-
-    }
-]
+export const users = [
+  {
+    name: "John",
+    email: "admin@example.com",
+    password: hashSync("123456", 10),
+    role: "admin",
+  },
+  {
+    name: "Jane",
+    email: "user@example.com",
+    password: hashSync("123456", 10),
+    role: "user",
+  },
+];
 
 export const products = [
   {
-    productNumber:1,
+    productNumber: 1,
     name: "Biodegradable dish.",
     description:
       "Biodegradable dish soap made from natural ingredients, gentle on hands.",
@@ -52,10 +51,13 @@ Make dishwashing a cleaner, greener experience today!
       "https://blobstorage1114.blob.core.windows.net/images/product-1-3.webp",
       "https://blobstorage1114.blob.core.windows.net/images/product-1-4.webp",
       "https://blobstorage1114.blob.core.windows.net/images/product-1-5.webp",
-    ], star:4.5,numReviews:10,isFeatured:true
+    ],
+    rating: 4,
+    numReviews: 10,
+    isFeatured: true,
   },
   {
-    productNumber:2,
+    productNumber: 2,
     name: "Non-toxic, plant-based laundry detergent for sensitive skin",
     description:
       "Make the switch to a detergent that's as kind to your skin as it is to the planet. Try our plant-powered solution today and embrace a healthier, more sustainable way to do laundry.",
@@ -89,10 +91,13 @@ Try our plant-powered solution today and embrace a healthier, more sustainable w
       "https://blobstorage1114.blob.core.windows.net/images/product-2-3.webp",
       "https://blobstorage1114.blob.core.windows.net/images/product-2-4.webp",
       "https://blobstorage1114.blob.core.windows.net/images/product-2-5.webp",
-    ], star:4.5,numReviews:10,isFeatured:true
+    ],
+    rating: 3.5,
+    numReviews: 10,
+    isFeatured: true,
   },
   {
-    productNumber:3,
+    productNumber: 3,
     name: "Microfiber cleaning cloths, reusable and effective on all surfaces.",
     description:
       "Say goodbye to dirt and streaks with our premium Microfiber Cleaning Cloths. Designed to be gentle yet powerful, these cloths are perfect for cleaning all categorys of surfaces, from glass to wood and everything in between.",
@@ -127,10 +132,13 @@ the ultimate cleaning companion.
       "https://blobstorage1114.blob.core.windows.net/images/product-3-2.webp",
       "https://blobstorage1114.blob.core.windows.net/images/product-3-3.webp",
       "https://blobstorage1114.blob.core.windows.net/images/product-3-4.webp",
-    ], star:4.5,numReviews:10,isFeatured:true
+    ],
+    rating: 5,
+    numReviews: 10,
+    isFeatured: true,
   },
   {
-    productNumber:4,
+    productNumber: 4,
     name: "Concentrated all-purpose cleaner, eco-friendly and powerful against grime.",
     description:
       "Say goodbye to dirt and streaks with our premium Microfiber Cleaning Cloths. Designed to be gentle yet powerful, these cloths are perfect for cleaning all categorys of surfaces, from glass to wood and everything in between.",
@@ -165,10 +173,13 @@ the ultimate cleaning companion.
       "https://blobstorage1114.blob.core.windows.net/images/product-4-2.webp",
       "https://blobstorage1114.blob.core.windows.net/images/product-4-3.webp",
       "https://blobstorage1114.blob.core.windows.net/images/product-4-4.webp",
-    ], star:4.5,numReviews:10,isFeatured:true
+    ],
+    rating: 3.5,
+    numReviews: 10,
+    isFeatured: true,
   },
   {
-    productNumber:5,
+    productNumber: 5,
     name: "Natural wood polish restores shine without harmful chemicals",
     description:
       "Natural wood polish restores shine without harmful chemicals.Combining functionality and sustainability, this collection is perfect for a mindful, environmentally conscious lifestyle",
@@ -203,10 +214,13 @@ the ultimate cleaning companion.
       "https://blobstorage1114.blob.core.windows.net/images/product-5-1.webp",
       "https://blobstorage1114.blob.core.windows.net/images/product-5-2.webp",
       "https://blobstorage1114.blob.core.windows.net/images/product-5-3.webp",
-    ], star:4.5,numReviews:10,isFeatured:true
+    ],
+    rating: 4,
+    numReviews: 10,
+    isFeatured: true,
   },
   {
-    productNumber:6,
+    productNumber: 6,
     name: "Teapot with a sturdy handle and whimsical design",
     description:
       "Combining effective antibacterial action with the nourishing benefits of aloe vera, this hand sanitizer is a must-have for maintaining hygiene without compromising on skin care. ideal for everyday use and suitable for all skin categorys.",
@@ -254,11 +268,14 @@ This tea set combines practicality with a whimsical design that will delight any
       "https://blobstorage1114.blob.core.windows.net/images/product-6-2.webp",
       "https://blobstorage1114.blob.core.windows.net/images/product-6-3.webp",
       "https://blobstorage1114.blob.core.windows.net/images/product-6-4.webp",
-    ], star:4.5,numReviews:10,isFeatured:true
+    ],
+    rating: 5,
+    numReviews: 10,
+    isFeatured: true,
   },
 
   {
-    productNumber:7,
+    productNumber: 7,
     name: "Antibacterial hand sanitizer",
     description:
       "This hand sanitizer combines superior germ-fighting power with the soothing benefits of aloe vera, making it perfect for daily use. It's an essential addition to your hygiene routine, ensuring cleanliness without compromising on skin care.",
@@ -294,10 +311,13 @@ This hand sanitizer combines superior germ-fighting power with the soothing bene
       "https://blobstorage1114.blob.core.windows.net/images/product-7-3.webp",
       "https://blobstorage1114.blob.core.windows.net/images/product-7-4.webp",
       "https://blobstorage1114.blob.core.windows.net/images/product-7-5.webp",
-    ], star:4.5,numReviews:10,isFeatured:true
+    ],
+    rating: 4.5,
+    numReviews: 10,
+    isFeatured: true,
   },
   {
-    productNumber:8,
+    productNumber: 8,
     name: "Green eSayClean Woolen bleach",
     details: `<div>
 <h1>Oxygen Bleach Alternative - Safe for Colors and the Environment</h1>
@@ -333,10 +353,13 @@ This oxygen bleach alternative is perfect for those who want a cleaner, greener 
       "https://blobstorage1114.blob.core.windows.net/images/product-8-3.webp",
       "https://blobstorage1114.blob.core.windows.net/images/product-8-4.webp",
       "https://blobstorage1114.blob.core.windows.net/images/product-8-5.webp",
-    ], star:4.5,numReviews:10,isFeatured:true
+    ],
+    rating: 5,
+    numReviews: 10,
+    isFeatured: true,
   },
   {
-    productNumber:9,
+    productNumber: 9,
     name: "Citrus degreaser",
     details: `<div>
 <h1>Oxygen Bleach Alternative - Safe for Colors and the Environment</h1>
@@ -372,10 +395,13 @@ This oxygen bleach alternative is perfect for those who want a cleaner, greener 
       "https://blobstorage1114.blob.core.windows.net/images/product-7-0.webp",
       "https://blobstorage1114.blob.core.windows.net/images/product-7-4.webp",
       "https://blobstorage1114.blob.core.windows.net/images/product-7-5.webp",
-    ], star:4.5,numReviews:10,isFeatured:true
+    ],
+    rating: 3.5,
+    numReviews: 10,
+    isFeatured: true,
   },
   {
-    productNumber:10,
+    productNumber: 10,
     name: "Glass cleaner leaves streak-free shine, no residue left behind",
     description:
       "Discover a powerful and eco-friendly solution for your laundry needs with our <strong>oxygen bleach alternative</strong>. This versatile product is designed to brighten whites, clean tough stains, and maintain the vibrancy of your colored fabrics, all while being gentle on the environment.",
@@ -424,10 +450,13 @@ This oxygen bleach alternative is perfect for those who want a cleaner, greener 
       "https://blobstorage1114.blob.core.windows.net/images/product-10-3.webp",
       "https://blobstorage1114.blob.core.windows.net/images/product-10-4.webp",
       "https://blobstorage1114.blob.core.windows.net/images/product-10-5.webp",
-    ], star:4.5,numReviews:10,isFeatured:true
+    ],
+    rating: 4,
+    numReviews: 10,
+    isFeatured: true,
   },
   {
-    productNumber:11,
+    productNumber: 11,
     name: "Green Code Cloths",
     details: `<div>
 <h1>Oxygen Bleach Alternative - Safe for Colors and the Environment</h1>
@@ -462,10 +491,13 @@ This oxygen bleach alternative is perfect for those who want a cleaner, greener 
       "https://blobstorage1114.blob.core.windows.net/images/product-11-2.webp",
       "https://blobstorage1114.blob.core.windows.net/images/product-11-3.webp",
       "https://blobstorage1114.blob.core.windows.net/images/product-11-4.webp",
-    ], star:4.5,numReviews:10,isFeatured:true
+    ],
+    rating: 5,
+    numReviews: 10,
+    isFeatured: true,
   },
   {
-    productNumber:12,
+    productNumber: 12,
     name: "Enzyme-based drain cleaner",
     details: `<div>
 <h1>Oxygen Bleach Alternative - Safe for Colors and the Environment</h1>
@@ -500,10 +532,13 @@ This oxygen bleach alternative is perfect for those who want a cleaner, greener 
       "https://blobstorage1114.blob.core.windows.net/images/product-12-2.webp",
       "https://blobstorage1114.blob.core.windows.net/images/product-12-3.webp",
       "https://blobstorage1114.blob.core.windows.net/images/product-12-4.webp",
-    ], star:4.5,numReviews:10,isFeatured:true
+    ],
+    rating: 5,
+    numReviews: 10,
+    isFeatured: true,
   },
   {
-    productNumber:13,
+    productNumber: 13,
     name: "Mineral-based toilet bowl cleaner",
     details: `<div>
 <h1>Oxygen Bleach Alternative - Safe for Colors and the Environment</h1>
@@ -538,10 +573,13 @@ This oxygen bleach alternative is perfect for those who want a cleaner, greener 
       "https://blobstorage1114.blob.core.windows.net/images/product-13-2.webp",
       "https://blobstorage1114.blob.core.windows.net/images/product-13-3.webp",
       "https://blobstorage1114.blob.core.windows.net/images/product-13-4.webp",
-    ], star:4.5,numReviews:10,isFeatured:true
+    ],
+    rating: 4.5,
+    numReviews: 10,
+    isFeatured: true,
   },
   {
-    productNumber:14,
+    productNumber: 14,
     name: "eSayClean Red Cloths",
     details: `<div>
 <h1>Oxygen Bleach Alternative - Safe for Colors and the Environment</h1>
@@ -576,10 +614,13 @@ This oxygen bleach alternative is perfect for those who want a cleaner, greener 
       "https://blobstorage1114.blob.core.windows.net/images/product-14-2.webp",
       "https://blobstorage1114.blob.core.windows.net/images/product-14-3.webp",
       "https://blobstorage1114.blob.core.windows.net/images/product-14-4.webp",
-    ], star:4.5,numReviews:10,isFeatured:true
+    ],
+    rating: 4,
+    numReviews: 10,
+    isFeatured: true,
   },
   {
-    productNumber:15,
+    productNumber: 15,
     name: "Vinegar-free fabric softener",
     details: `<div>
 <h1>Oxygen Bleach Alternative - Safe for Colors and the Environment</h1>
@@ -613,10 +654,13 @@ This oxygen bleach alternative is perfect for those who want a cleaner, greener 
       "https://blobstorage1114.blob.core.windows.net/images/product-15-2.webp",
       "https://blobstorage1114.blob.core.windows.net/images/product-15-3.webp",
       "https://blobstorage1114.blob.core.windows.net/images/product-15-4.webp",
-    ], star:4.5,numReviews:10,isFeatured:true
+    ],
+    rating: 4,
+    numReviews: 10,
+    isFeatured: true,
   },
   {
-    productNumber:16,
+    productNumber: 16,
     name: "Car wash solution",
     details: `<div>
 <h1>Oxygen Bleach Alternative - Safe for Colors and the Environment</h1>
@@ -650,6 +694,9 @@ This oxygen bleach alternative is perfect for those who want a cleaner, greener 
       "https://blobstorage1114.blob.core.windows.net/images/product-16-2.webp",
       "https://blobstorage1114.blob.core.windows.net/images/product-16-3.webp",
       "https://blobstorage1114.blob.core.windows.net/images/product-16-4.webp",
-    ], star:4.5,numReviews:10,isFeatured:true
+    ],
+    rating: 3,
+    numReviews: 10,
+    isFeatured: true,
   },
 ];

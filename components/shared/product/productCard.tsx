@@ -29,7 +29,7 @@ const ProductCard = ({ product }: { product: IProduct }) => {
               {product.name}
             </div>
             <div className="flex-between gap-4">
-              <p>{product.star}Starts</p>
+              <p>{product.rating}Starts</p>
               {product.quantityInStock > 0 ? (
                 <ProductPrice
                   className="text-red-500"

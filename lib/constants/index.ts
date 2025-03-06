@@ -26,3 +26,5 @@ export const PAYMENT_METHODS = process.env.PAYMENT_METHODS
   : ["PayPal", "Stripe", "CashOnDelivery"];
 
 export const DEFAULT_PAYMENT_METHOD = process.env.PAYMENT_METHODS || "PayPal";
+
+export const PAGE_SIZE = 6;

@@ -41,7 +41,7 @@ const ProductDetailsPage = async ({
               </p>
               <h1 className="h3-bold">{product.name}</h1>
               <p>
-                {product.star as any} of {product.numReviews} Reviews
+                {product.rating as any} of {product.numReviews} Reviews
               </p>
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
                 <ProductPrice
