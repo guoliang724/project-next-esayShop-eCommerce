@@ -86,7 +86,7 @@ const SearchPage = async (props: {
     page = "1",
   } = await props.searchParams;
 
-  console.log(q, category, price, rating, sort, page);
+
 
   const products = await getAllProducts({
     category,

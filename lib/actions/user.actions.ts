@@ -24,8 +24,7 @@ export const SignInWithCredentials = async (
       password: formData.get("password"),
     });
 
-    console.log("signwi", user.email);
-    console.log("signwi", user.password);
+
 
     await signIn("credentials", user);
 

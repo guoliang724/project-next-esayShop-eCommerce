@@ -32,12 +32,7 @@ export async function createUpdateReview(
         userId: review.userId,
       },
     });
-    console.log({
-      review: review,
-      product,
-      reviewExists,
-    });
-
+  
     await prisma.$transaction(async (tx) => {
       if (reviewExists) {
         await tx.review.update({

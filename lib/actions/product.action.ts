@@ -13,7 +13,7 @@ export async function getProducts() {
       createdAt: "desc",
     },
   });
-  console.log("");
+
   return covertToPlainObject(products);
 }
 

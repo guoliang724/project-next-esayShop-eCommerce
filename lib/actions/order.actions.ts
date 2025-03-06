@@ -11,7 +11,7 @@ import { prisma } from "@/prisma/prisma";
 import { ICartItem, IPaymentResult } from "@/type";
 import { paypal } from "../paypal";
 import { revalidatePath } from "next/cache";
-
+import { PAGE_SIZE } from "../constants";
 export async function createOrder() {
   try {
     const session = await auth();
@@ -85,8 +85,6 @@ export async function createOrder() {
       return insertedOrder.id;
     });
 
-    console.log("insetedOrderId", insetedOrderId);
-
     if (!insetedOrderId) throw new Error("Order not created");
 
     return {
@@ -125,17 +123,15 @@ export const createPayPalOrder = async (orderId: string) => {
       },
     });
 
-    console.log("++++++orderId", orderId);
-
     if (order) {
       const payPalOrder = await paypal.createOrder(Number(order.totalPrice));
-      console.log("payPalOrder", payPalOrder);
+
       await prisma.order.update({
         where: {
           id: orderId,
         },
         data: {
-          paymentResult: { 
+          paymentResult: {
             id: payPalOrder.id,
             status: "",
             email_address: "",
@@ -144,7 +140,6 @@ export const createPayPalOrder = async (orderId: string) => {
         },
       });
 
-      console.log(" data: payPalOrder.id,", payPalOrder.id);
       return {
         success: true,
         message: "Item order created successfully",
@@ -257,3 +252,30 @@ export const updateOrderToPaid = async (
   });
   if (!updatedOrder) throw new Error("Order not found");
 };
+
+export async function getMyOrders({
+  limit = PAGE_SIZE,
+  page,
+}: {
+  limit?: number;
+  page: number;
+}) {
+  const session = await auth();
+  if (!session) throw new Error("User is not authenticated");
+
+  const data = await prisma.order.findMany({
+    where: { userId: session.user.id! },
+    orderBy: { createdAt: "desc" },
+    take: limit,
+    skip: (page - 1) * limit,
+  });
+
+  const dataCount = await prisma.order.count({
+    where: { userId: session.user.id! },
+  });
+
+  return {
+    data,
+    totalPages: Math.ceil(dataCount / limit),
+  };
+}

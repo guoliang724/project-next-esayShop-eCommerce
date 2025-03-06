@@ -25,8 +25,6 @@ async function main() {
         data: users
     });
 
-
-    console.log("database seed successful!");
 }
 
 main();

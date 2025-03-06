@@ -9,7 +9,7 @@ function PlaceOrderForm() {
   const router = useRouter();
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log("++++order");
+
     const res = await createOrder();
     if (res.redirectTo) {
       router.push(res.redirectTo);

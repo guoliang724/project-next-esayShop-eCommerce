@@ -110,9 +110,7 @@ export const addItemToCart = async (itemData: ICartItem) => {
       };
     }
   } catch (error) {
-    console.log({
-      errors: error,
-    });
+    
     return { success: false, message: formatError(error) };
   }
 };

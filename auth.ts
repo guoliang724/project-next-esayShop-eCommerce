@@ -83,7 +83,7 @@ export const config = {
               where: { sessionCartId: sessionCartId },
             });
 
-            console.log("sessionCart", sessionCart);
+
 
             if (sessionCart) {
               await prisma.cart.deleteMany({
