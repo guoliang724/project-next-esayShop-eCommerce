@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -23,13 +24,18 @@ import {
   approvePayPalorder,
 } from "@/lib/actions/order.actions";
 import { useToast } from "@/hooks/use-toast";
+import StripePayment from "./stripe-payment";
 
 function OrderDetailsTable({
   order,
   paypalClientId,
+  stripeClientSecret,
+  isAdmin,
 }: {
   order: IOrder;
   paypalClientId: string;
+  stripeClientSecret: string;
+  isAdmin: boolean;
 }) {
   const {
     id,
@@ -61,9 +67,7 @@ function OrderDetailsTable({
     return status;
   };
 
-  console.log("++++order.id", order.id);
   const handleCreateOrder = async () => {
-    console.log("++++order.id111", order.id);
     const res = await createPayPalOrder(order.id);
 
     if (!res.success) {
@@ -191,6 +195,14 @@ function OrderDetailsTable({
                     />
                   </PayPalScriptProvider>
                 </div>
+              )}
+
+              {!isPaid && paymentMethod === "Stripe" && stripeClientSecret && (
+                <StripePayment
+                  priceInCents={Number(order.totalPrice) * 100}
+                  orderId={order.id}
+                  clientSecret={stripeClientSecret}
+                />
               )}
             </CardContent>
           </Card>

@@ -3,6 +3,7 @@ import ProductList from "@/components/shared/product/product-list";
 import { getFeaturedProducts } from "@/lib/actions/product.action";
 import ProductCarousel from "@/components/shared/product/product-carousel";
 import ViewAllProductsButton from "@/components/view-all-products-button";
+import IconBoxes from "@/components/icon-boxes";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 export const metadata = {
@@ -17,6 +18,7 @@ const Home = async () => {
       <ProductCarousel data={latesProducts as any} />
       <ProductList data={products as any} title="Newest Arrivals"></ProductList>
       <ViewAllProductsButton />
+      <IconBoxes></IconBoxes>
     </>
   );
 };
