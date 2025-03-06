@@ -59,11 +59,6 @@ export const config = {
       return session;
     },
     async jwt({ token, user, account, trigger, session }: any) {
-      // console.log({
-      //   title: "jtw part",
-      //   token: token,
-      //   tigger: trigger,
-      // });
       if (user) {
         token.id = user.id;
         token.role = user.role;

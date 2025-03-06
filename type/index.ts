@@ -47,3 +47,11 @@ export type IOrder = z.infer<typeof insertOrderSchema> & {
 };
 
 export type IPaymentResult = z.infer<typeof paymentResultSchema>;
+
+import { insertReviewSchema } from "@/lib/validator";
+
+export type Review = z.infer<typeof insertReviewSchema> & {
+  id: string;
+  createdAt: Date;
+  user?: { name: string };
+};

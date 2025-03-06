@@ -8,6 +8,10 @@ import ProductImages from "@/components/shared/product/product-images";
 import AddToCart from "@/components/shared/product/add-to-cart";
 import { getMyCart } from "@/lib/actions/cart.action";
 
+import { auth } from "@/auth";
+import ReviewList from "./review-list";
+import Rating from "@/components/shared/product/rating";
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 const ProductDetailsPage = async ({
@@ -15,6 +19,9 @@ const ProductDetailsPage = async ({
 }: {
   params: Promise<{ productNumber: string }>;
 }) => {
+  const session = await auth();
+  const userId = session?.user?.id;
+
   const { productNumber } = await params;
 
   const transferToNumber = parseInt(productNumber);
@@ -40,9 +47,8 @@ const ProductDetailsPage = async ({
                 {product.brand} {product.category}
               </p>
               <h1 className="h3-bold">{product.name}</h1>
-              <p>
-                {product.rating as any} of {product.numReviews} Reviews
-              </p>
+              <Rating value={Number(product.rating)} />
+              <p>{product.numReviews} reviews</p>
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
                 <ProductPrice
                   price={product.price}
@@ -57,7 +63,9 @@ const ProductDetailsPage = async ({
                 className="text-sm"
                 dangerouslySetInnerHTML={{ __html: product.details }}
               ></p>
-              {/* <p>{product.description}</p> */}
+              <p>
+                {product.rating} of {product.numReviews} reviews
+              </p>
             </div>
           </div>
           <div>
@@ -96,6 +104,14 @@ const ProductDetailsPage = async ({
             </Card>
           </div>
         </div>
+      </section>
+      <section className="mt-10">
+        <h2 className="h2-bold  mb-5">Customer Reviews</h2>
+        <ReviewList
+          productId={product.id}
+          productSlug={product.productNumber + ""}
+          userId={userId || ""}
+        />
       </section>
     </div>
   );

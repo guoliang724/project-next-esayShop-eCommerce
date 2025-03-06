@@ -6,6 +6,7 @@ import Link from "next/link";
 
 import Image from "next/image";
 import ProductPrice from "./productPrice";
+import Rating from "./rating";
 
 const ProductCard = ({ product }: { product: IProduct }) => {
   return (
@@ -29,7 +30,7 @@ const ProductCard = ({ product }: { product: IProduct }) => {
               {product.name}
             </div>
             <div className="flex-between gap-4">
-              <p>{product.rating}Starts</p>
+              <Rating value={Number(product.rating)} />
               {product.quantityInStock > 0 ? (
                 <ProductPrice
                   className="text-red-500"
